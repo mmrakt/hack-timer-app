@@ -1,5 +1,5 @@
 {
-  "name": "common",
+  "name": "@hack-timer/common",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -8,5 +8,21 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "hack-timer": "*",
+    "i18next": "^22.4.13",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "react-i18next": "^12.2.0"
+  },
+  "devDependencies": {
+    "hack-timer": "*",
+    "vite": "^4.2.1"
   }
 }

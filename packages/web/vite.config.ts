@@ -1,19 +1,61 @@
 /// <reference types="vitest" />
+import { crx, defineManifest } from '@crxjs/vite-plugin'
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
-export default defineConfig({
-  cacheDir: '../../node_modules/.vite/web',
-
-  server: {
-    port: 4200,
-    host: 'localhost',
+const manifest = defineManifest({
+  manifest_version: 3,
+  name: 'hack-timer',
+  version: '1.0.0',
+  description: 'A simple pomodoro timer to improve productivity',
+  icons: {
+    '16': 'public/assets/img/h-16.png',
+    '48': 'public/assets/img/h-48.png',
+    '128': 'public/assets/img/h-128.png'
   },
+  action: {
+    default_popup: 'popup.html'
+  },
+  background: {
+    service_worker: 'src/background/main.ts',
+    type: 'module'
+  },
+  permissions: ['storage', 'tabs', 'notifications'],
+  commands: {
+    toggle_timer_status: {
+      suggested_key: {
+        default: 'Ctrl+Shift+T',
+        mac: 'Command+Shift+T'
+      },
+      description: 'Toggle Pause/Resume a timer'
+    }
+  },
+  options_page: 'expire.html'
+})
 
-  preview: {
-    port: 4300,
-    host: 'localhost',
+export default defineConfig({
+  // cacheDir: '../../node_modules/.vite/web',
+
+  // server: {
+  //   port: 4200,
+  //   host: 'localhost',
+  // },
+
+  // preview: {
+  //   port: 4300,
+  //   host: 'localhost',
+  // },
+
+  build: {
+    minify: false,
+    emptyOutDir: true,
+    outDir: 'build',
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'assets/chunk-[hash].js'
+      }
+    }
   },
 
   plugins: [
@@ -21,23 +63,15 @@ export default defineConfig({
     viteTsConfigPaths({
       root: '../../',
     }),
+    crx({manifest})
   ],
 
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [
-  //    viteTsConfigPaths({
-  //      root: '../../',
-  //    }),
-  //  ],
+  // test: {
+  //   globals: true,
+  //   cache: {
+  //     dir: '../../node_modules/.vitest',
+  //   },
+  //   environment: 'jsdom',
+  //   include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   // },
-
-  test: {
-    globals: true,
-    cache: {
-      dir: '../../node_modules/.vitest',
-    },
-    environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-  },
 });

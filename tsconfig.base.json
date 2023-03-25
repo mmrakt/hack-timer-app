@@ -6,17 +6,21 @@
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "common": ["packages/common/src/index.ts"]
-    }
+      "@hack-timer/common/*": ["packages/common/src/*"],
+      "@hack-timer/web/*": ["packages/web/src/*"],
+      "@hack-timer/mobile/*": ["packages/mobile/src/*"]
+    },
+    "jsx": "react-jsx"
   },
   "exclude": ["node_modules", "tmp"]
 }

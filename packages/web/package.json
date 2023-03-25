@@ -1,0 +1,27 @@
+{
+  "name": "@hack-timer/web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@hack-timer/common": "*",
+    "hack-timer": "*",
+    "recharts": "^2.5.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.14",
+    "@hack-timer/common": "*",
+    "@types/chrome": "^0.0.225",
+    "autoprefixer": "^10.4.14",
+    "hack-timer": "*",
+    "jest-chrome": "^0.8.0",
+    "mockdate": "^3.0.5",
+    "postcss": "^8.4.21",
+    "react-countdown-circle-timer": "^3.2.1",
+    "tailwindcss": "^3.2.7",
+    "vite": "^4.2.1"
+  }
+}

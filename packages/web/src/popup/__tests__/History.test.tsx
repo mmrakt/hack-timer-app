@@ -1,0 +1,30 @@
+import { DailyPomodoro, DisplayTermType } from '@hack-timer/common/types'
+
+describe('', () => {
+  beforeEach(() => {})
+  afterEach(() => {})
+  it('HistoryChart', async () => {
+    const dailyPomodoros: DailyPomodoro[] = [
+      {
+        year: 2022,
+        month: 1,
+        day: 1,
+        count: 10
+      },
+      {
+        year: 2022,
+        month: 1,
+        day: 2,
+        count: 5
+      },
+      {
+        year: 2022,
+        month: 2,
+        day: 1,
+        count: 3
+      }
+    ]
+    const displayTermType: DisplayTermType = 'month'
+    const timesGoBack = 0
+  })
+})

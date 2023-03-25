@@ -9,6 +9,7 @@
     }
   },
   "extends": "nx/presets/npm.json",
+  "npmScope": "@hack-timer",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "generators": {
     "@nrwl/react": {
