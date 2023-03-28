@@ -4,7 +4,7 @@ import { DailyPomodoro, DisplayTermType, HistoryDataSet } from '@hack-timer/comm
 import {
   NUMBER_OF_DAY_BY_WEEK,
   NUMBER_OF_MONTH_BY_YEAR
-} from '@hack-timer/common/consts/index'
+} from '../../../../../common/src/config/index'
 
 const useFormatHistoryData = (
   dailyPomodoros: DailyPomodoro[],

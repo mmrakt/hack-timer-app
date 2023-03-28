@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import Header from '@hack-timer/web/components/Header'
+import Header from '../components/Header'
 import SettingRow from '../components/settings/SettingRow'
 import SettingToggle from '../components/settings/SettingToggle'
 import TimerLengthSelect from '../components/settings/TimerLengthSelect'
@@ -9,7 +9,7 @@ import {
   BREAK_LENGTH_ARRAY,
   LONG_BREAK_LENGTH_ARRAY,
   POMODORO_COUNT_UNTIL_LONG_BREAK
-} from '@hack-timer/common/consts'
+} from '@hack-timer/common/config/index'
 import { StorageValue } from '@hack-timer/common/types'
 import { getStorage } from '../utils/chrome'
 

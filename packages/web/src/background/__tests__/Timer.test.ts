@@ -1,10 +1,10 @@
 import MockDate from 'mockdate'
 import { chrome } from 'jest-chrome'
-// import { DEFAULT_TIMER_SECONDS } from '@hack-timer/common/consts/index'
+// import { DEFAULT_TIMER_SECONDS } from '@hack-timer/common/config/index'
 import { expire } from '../Timer'
 import { Message } from '@hack-timer/common/types/index'
-import { FromServiceWorkerMessgeType } from '@hack-timer/common/consts/message'
-import { COLOR } from '@hack-timer/common/consts/color'
+import { FromServiceWorkerMessgeType } from '@hack-timer/common/config/message'
+import { COLOR } from '@hack-timer/common/config/color'
 
 describe.skip('Timer', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { DEFAULT_POPUP_PAGE_TYPE } from '@hack-timer/common/consts'
+import { DEFAULT_POPUP_PAGE_TYPE } from '@hack-timer/common/config/index'
 import { DisplayPageContext } from '../popup/Popup'
 import ArrowLeft from './svg/ArrowLeft'
 import { useTranslation } from 'react-i18next'

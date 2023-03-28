@@ -1,4 +1,4 @@
-import { COLOR } from '@hack-timer/common/consts/color'
+import { COLOR } from '@hack-timer/common/config/color'
 import { Phase } from '@hack-timer/common/types'
 import { action } from '../utils/chrome'
 import {

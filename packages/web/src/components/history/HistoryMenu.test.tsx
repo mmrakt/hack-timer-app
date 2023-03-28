@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { HISTORY_CSV_FILE_NAME } from '@hack-timer/common/consts/index'
+import { HISTORY_CSV_FILE_NAME } from '@hack-timer/common/config'
 import { DailyPomodoro } from '@hack-timer/common/types'
 import {
   HistoryMenu,

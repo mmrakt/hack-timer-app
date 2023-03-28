@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react'
 import ThemeProvider from '../components/ThemeProvider'
 import TimerContainer from '../components/timer/TimerContainer'
-import { DEFAULT_POPUP_PAGE_TYPE } from '@hack-timer/common/consts'
+import { DEFAULT_POPUP_PAGE_TYPE } from '@hack-timer/common/config/index'
 import { PageType } from '@hack-timer/common/types'
 import HistoryContainer from './History'
 import SettingsContainer from './Settings'

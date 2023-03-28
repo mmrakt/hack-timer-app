@@ -3,10 +3,10 @@ import {
   BOM_ARRAY,
   HISTORY_CSV_FILE_NAME,
   HISTORY_CSV_HEADER_ARRAY,
-} from '@hack-timer/common/consts';
+} from '@hack-timer/common/config/index';
 import { DailyPomodoro } from '@hack-timer/common/types';
 import { useTranslation } from 'react-i18next';
-import { NEW_LINE_CODE } from '@hack-timer/common/consts/index';
+import { NEW_LINE_CODE } from '@hack-timer/common/config/index';
 
 const createStorageValue = (content: string): DailyPomodoro[] => {
   const newLineCodes =

@@ -1,5 +1,5 @@
 import TimerLengthSelect from './TimerLengthSelect'
-import { POMODORO_LENGTH_ARRAY } from '@hack-timer/common/consts/index'
+import { POMODORO_LENGTH_ARRAY } from '@hack-timer/common/config'
 import { fireEvent, render } from '@testing-library/react'
 
 describe('', () => {

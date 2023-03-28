@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Message, Phase } from '@hack-timer/common/types';
-import { FromPopupMessageType } from '../../../common/src/consts/message';
+import { FromPopupMessageType } from '../../../common/src/config/message';
 import Forward from './svg/Forward';
 import Pause from './svg/Pause';
 import Play from './svg/Play';
@@ -10,7 +10,7 @@ import {
   CountdownCircleTimer,
 } from 'react-countdown-circle-timer';
 import Countdown from './timer/Countdown';
-import { COLOR } from '@hack-timer/common/consts/color';
+import { COLOR } from '@hack-timer/common/config/color';
 import { getStorage } from '../utils/chrome';
 import PomodoroCircles from './timer/PomodoroCircles';
 import { ThemeContext } from './ThemeProvider';

@@ -3,15 +3,16 @@ import {
   DailyPomodoro,
   DisplayTermType,
   HistoryDataSet
-} from '@hack-timer/common/types/index'
+} from '@hack-timer/common/types'
 import useFormatHistoryData from './useFormatHisotryData'
-import { NUMBER_OF_DAY_BY_WEEK } from '@hack-timer/common/consts/index'
+import { NUMBER_OF_DAY_BY_WEEK } from '../../../../../common/src/config/index'
 
 const d = new Date()
 const thisYear = d.getFullYear()
 const thisMonth = d.getMonth() + 1
+const lastDayOfMonth = new Date(thisYear, thisMonth, 0).getDate()
 const today = d.getDate()
-const dayOfWeek = d.getDay()
+const numberOfWeek = d.getDay()
 
 describe('yearly', () => {
   let dailyPomodoros: DailyPomodoro[] = []
@@ -196,7 +197,7 @@ describe('weekly', () => {
   it('initial display', () => {
     const expectHistoryData: HistoryDataSet = getExpectWeeklyHistoryData(today)
     // 実施日前後の曜日。金曜（5）なら木曜（4）
-    const arroundDayOfWeek = dayOfWeek > 0 ? dayOfWeek - 1 : dayOfWeek + 1
+    const arroundDayOfWeek = numberOfWeek > 0 ? numberOfWeek - 1 : numberOfWeek + 1
     const dailyPomodoros: DailyPomodoro[] = [
       {
         year: thisYear,
@@ -207,7 +208,7 @@ describe('weekly', () => {
       {
         year: thisYear,
         month: thisMonth,
-        day: today - dayOfWeek + arroundDayOfWeek,
+        day: today - numberOfWeek + arroundDayOfWeek,
         count: 5
       }
     ]
@@ -216,9 +217,9 @@ describe('weekly', () => {
     const { result } = renderHook(() =>
       useFormatHistoryData(dailyPomodoros, displayTermType, timesGoBack)
     )
-    expectHistoryData[dayOfWeek].count = 10 // 当日：10回
+    expectHistoryData[numberOfWeek].count = 10 // 当日：10回
     expectHistoryData[arroundDayOfWeek].count = 5 // 前後：5回
-
+    
     expect(result.current).toStrictEqual(expectHistoryData)
   })
   it('empty pomodoro', () => {
@@ -236,7 +237,7 @@ describe('weekly', () => {
     const aWeekAgoDate = today - NUMBER_OF_DAY_BY_WEEK
     const expectHistoryData: HistoryDataSet =
       getExpectWeeklyHistoryData(aWeekAgoDate)
-    const arroundDayOfWeek = dayOfWeek > 0 ? dayOfWeek - 1 : dayOfWeek + 1
+    const arroundDayOfWeek = numberOfWeek > 0 ? numberOfWeek - 1 : numberOfWeek + 1
     const dailyPomodoros: DailyPomodoro[] = [
       {
         year: thisYear,
@@ -247,7 +248,7 @@ describe('weekly', () => {
       {
         year: thisYear,
         month: thisMonth,
-        day: aWeekAgoDate - dayOfWeek + arroundDayOfWeek,
+        day: aWeekAgoDate - numberOfWeek + arroundDayOfWeek,
         count: 5
       }
     ]
@@ -256,7 +257,7 @@ describe('weekly', () => {
     const { result } = renderHook(() =>
       useFormatHistoryData(dailyPomodoros, displayTermType, timesGoBack)
     )
-    expectHistoryData[dayOfWeek].count = 10 // 1週間前：10回
+    expectHistoryData[numberOfWeek].count = 10 // 1週間前：10回
     expectHistoryData[arroundDayOfWeek].count = 5 // 1週間前の前後：5回
 
     expect(result.current).toStrictEqual(expectHistoryData)
@@ -282,8 +283,10 @@ function getExpectWeeklyHistoryData(day: number): HistoryDataSet {
   const historyData: HistoryDataSet = []
 
   for (let i = 0; i < NUMBER_OF_DAY_BY_WEEK; i++) {
+    // 月の最終日を超えた場合は翌月の日付にする
+    const date = lastDayOfMonth < day - numberOfWeek + i ? day - numberOfWeek + i - lastDayOfMonth : day - numberOfWeek + i
     const history = {
-      name: String(day - dayOfWeek + i),
+      name: String(date),
       count: 0
     }
     historyData.push(history)

@@ -10,7 +10,7 @@ import {
 } from 'recharts'
 import { HistoryDataSet } from '@hack-timer/common/types'
 import LoadingSpinner from '../LoadingSpinner'
-import { COLOR } from '@hack-timer/common/consts/color'
+import { COLOR } from '@hack-timer/common/config/color'
 import { ThemeContext } from '../ThemeProvider'
 
 const tooltipLabelStyle = {

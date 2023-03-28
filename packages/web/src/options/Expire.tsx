@@ -4,7 +4,7 @@ import {
   Phase,
   StorageValue,
 } from '@hack-timer/common/types/index';
-import { FromPopupMessageType } from '@hack-timer/common/consts/message';
+import { FromPopupMessageType } from '../config/message';
 import { extractTodayPomodoroCount } from '../utils/pomodoroHelper';
 import { useTranslation } from 'react-i18next';
 import LoadingSpinner from '../components/LoadingSpinner';

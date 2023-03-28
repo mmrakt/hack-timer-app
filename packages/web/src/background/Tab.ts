@@ -1,6 +1,6 @@
-import { EXPIRE_HTML_PATH } from '@hack-timer/common/consts'
+import { EXPIRE_HTML_PATH } from '@hack-timer/common/config'
 import { tabs, windows } from '../utils/chrome'
-import { EXPIRE_PAGE } from '@hack-timer/common/consts/index'
+import { EXPIRE_PAGE } from '@hack-timer/common/config'
 
 const openNewTab = (): void => {
   tabs.create(

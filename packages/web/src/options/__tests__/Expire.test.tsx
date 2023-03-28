@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { ExpireMenu, ExpireContainer } from '../Expire'
 import { chrome } from 'jest-chrome'
 import '@testing-library/jest-dom'
-import { FromPopupMessageType } from '@hack-timer/common/consts/message'
+import { FromPopupMessageType } from '@hack-timer/common/config/message'
 
 describe('ExpireContainer', () => {
   it('render', () => {

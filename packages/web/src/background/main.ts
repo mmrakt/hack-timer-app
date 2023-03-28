@@ -9,7 +9,7 @@ import '../utils/i18n'
 import { closeTabs } from './Tab'
 import { updateSecondsOfBadge, updateColorOfBadge } from './Action'
 import { toggleTimerStatus, expire, pauseTimer, resumeTimer } from './Timer'
-import { DEFAULT_STORAGE_VALUE } from '@hack-timer/common/consts/index'
+import { DEFAULT_STORAGE_VALUE } from '@hack-timer/common/config'
 
 runtime.onInstalled.addListener(async () => {
   getStorage(['reminingSeconds']).then((data) => {

@@ -26,5 +26,5 @@
     "../web/src/utils/chrome.ts",
     "src/utils/i18n.ts",
     "../web/src/utils/chrome.ts"
-, "../web/src/components/timer/HeaderMenu.tsx", "../web/src/components/Circle.tsx"  ]
+, "../web/src/components/timer/HeaderMenu.tsx", "../web/src/components/Circle.tsx", "src/config/index.ts"  ]
 }

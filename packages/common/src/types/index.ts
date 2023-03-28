@@ -1,4 +1,4 @@
-import { FromPopupMessageType, FromServiceWorkerMessgeType } from "../consts/message"
+import { FromPopupMessageType, FromServiceWorkerMessgeType } from "../config/message"
 
 export type Response = {
   id: string
